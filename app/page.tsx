@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { auth } from '@clerk/nextjs'
 import Link from 'next/link'
 
@@ -12,8 +13,12 @@ import Link from 'next/link'
 =======
 import Link from 'next/link'
 >>>>>>> 3407ea4 (initialize app and add auth)
+=======
+import Link from 'next/link'
+>>>>>>> 3407ea4 (initialize app and add auth)
 
   return (
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     <div className="w-screen h-screen bg-black flex justify-center items-center text-white">
@@ -28,6 +33,8 @@ import Link from 'next/link'
             <button className="bg-blue-600 px-4 py-2 rounded-lg text-xl">
               get started
 =======
+=======
+>>>>>>> 3407ea4 (initialize app and add auth)
 =======
 >>>>>>> 3407ea4 (initialize app and add auth)
     <div className="w-screen h-screen bg-black ">
@@ -48,6 +55,9 @@ import Link from 'next/link'
             >
               Get Started
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 3407ea4 (initialize app and add auth)
+=======
 >>>>>>> 3407ea4 (initialize app and add auth)
 =======
 >>>>>>> 3407ea4 (initialize app and add auth)
