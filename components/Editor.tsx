@@ -5,7 +5,7 @@ import { useAutosave } from 'react-autosave'
 import Spinner from './Spinner'
 import { useRouter } from 'next/navigation'
 
-const Editor = ({ entry }) => {
+const Editor = ({ entry }:{entry:any}) => {
   const [text, setText] = useState(entry.content)
   const [currentEntry, setEntry] = useState(entry)
   const [isSaving, setIsSaving] = useState(false)
