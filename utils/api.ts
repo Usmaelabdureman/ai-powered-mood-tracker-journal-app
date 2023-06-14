@@ -1,8 +1,10 @@
 const createURL = (path: string) => window.location.origin + path
 
-export const fetcher = (...args) => fetch(...args).then((res) => res.json())
+// export const fetcher = (...args: any[]) => fetch(...args).then((res) => res.json())
 
-export const deleteEntry = async (id) => {
+export const fetcher = (...args: any[]) => fetch(...args as [RequestInfo, RequestInit]).then((res) => res.json());
+
+export const deleteEntry = async (id: any) => {
   const res = await fetch(
     new Request(createURL(`/api/entry/${id}`), {
       method: 'DELETE',
