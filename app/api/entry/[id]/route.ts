@@ -4,7 +4,7 @@ import { getUserByClerkID } from '@/utils/auth'
 import { prisma } from '@/utils/db'
 import { NextResponse } from 'next/server'
 
-export const DELETE = async (request: Request, { params }) => {
+export const DELETE = async (request: Request, { params }:{params:any}) => {
   const user = await getUserByClerkID()
 
   await prisma.journalEntry.delete({
@@ -16,12 +16,13 @@ export const DELETE = async (request: Request, { params }) => {
     },
   })
 
-  update(['/journal'])
+   update(['/journal']);
+
 
   return NextResponse.json({ data: { id: params.id } })
 }
 
-export const PATCH = async (request: Request, { params }) => {
+export const PATCH = async (request: Request, { params }:{params:any}) => {
   const { updates } = await request.json()
   const user = await getUserByClerkID()
 
