@@ -1,6 +1,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { UserButton } from '@clerk/nextjs'
 import Link from 'next/link'
 import React from 'react';
@@ -47,6 +48,8 @@ export default DashboardLayout;
 >>>>>>> 3407ea4 (initialize app and add auth)
 =======
 >>>>>>> 3407ea4 (initialize app and add auth)
+=======
+>>>>>>> 3407ea4 (initialize app and add auth)
 // import { UserButton } from '@clerk/nextjs'
 // import Link from 'next/link'
 
@@ -89,6 +92,9 @@ export default DashboardLayout;
 // export default DashboardLayout
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 3407ea4 (initialize app and add auth)
+=======
 >>>>>>> 3407ea4 (initialize app and add auth)
 =======
 >>>>>>> 3407ea4 (initialize app and add auth)
