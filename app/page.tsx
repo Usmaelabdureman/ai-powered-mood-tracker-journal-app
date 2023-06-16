@@ -13,10 +13,12 @@ export default async function Home() {
           <h1 className="text-6xl text-white/80 mb-6">
             Learn more about you from, you.
           </h1>
+          <h1 className="text-6xl text-white/80 mb-6">
+          The best Journal app, period
+          </h1>
           <p className="text-xl text-white/60 mb-6">
-            this is the description of the journal app to do shit. this is the
-            description of the journal app to do shit. this is the description
-            of the journal app to do shit.
+          This is the best app for tracking your mood through out your life. All
+          you have to do is be honest.
           </p>
           <Link href="/journal">
             <button
