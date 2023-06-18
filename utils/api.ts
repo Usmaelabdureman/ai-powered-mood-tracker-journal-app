@@ -1,7 +1,6 @@
 const createURL = (path: string) => window.location.origin + path
 
 // export const fetcher = (...args: any[]) => fetch(...args).then((res) => res.json())
-
 export const fetcher = (...args: any[]) => fetch(...args as [RequestInfo, RequestInit]).then((res) => res.json());
 
 export const deleteEntry = async (id: any) => {
@@ -45,18 +44,5 @@ export const updateEntry = async (id: any, updates: any) => {
     return res.json()
   } else {
     throw new Error('Something went wrong on API server!')
-  }
-}
-export const askQuestion = async (question: string) => {
-  const res = await fetch(
-    new Request(createURL('/api/question'), {
-      method: 'POST',
-      body: JSON.stringify({ question }),
-    })
-  )
-
-  if (res.ok) {
-    const data = await res.json()
-    return data.data
   }
 }
