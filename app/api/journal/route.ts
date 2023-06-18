@@ -19,7 +19,7 @@ export const POST = async () => {
       userId: user.id,
       entryId: entry.id,
       ...analysis,
-    },
+    } as any,
   })
 
   revalidatePath('/journal')

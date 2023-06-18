@@ -1,12 +1,7 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-    typescript: {
-      ignoreBuildErrors: true,
-    },
-    eslint: {
-      ignoreBuildErrors: true,
-      ignoreDuringBuilds: true,
-    },
-  }
-  
-  module.exports = nextConfig
+module.exports = {
+  reactStrictMode: true,
+  images: {
+    domains: ['lh3.googleusercontent.com'],
+  },
+};
