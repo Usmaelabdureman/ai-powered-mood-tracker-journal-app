@@ -12,46 +12,32 @@ datasource db {
 }
 
 model User {
-  id        String         @id @default(uuid())
-  email     String         @unique
-  clerkId   String         @unique
-  name      String?
-  createdAt DateTime       @default(now())
-  updatedAt DateTime       @updatedAt
-  account   Account?
-  entries   JournalEntry[]
-}
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
-model Account {
-  id     String @id @default(uuid())
-  userId String
-  user   User   @relation(fields: [userId], references: [id])
-  // stripeCustomerId String @unique
-
-  @@unique([userId])
-}
-
-enum JOURNAL_ENTRY_STATUS {
-  DRAFT
-  PUBLISHED
-  ARCHIVED
+  clerkId String         @unique
+  email   String         @unique
+  entries JournalEntry[]
+  analyses Analysis[]
 }
 
 model JournalEntry {
   id        String   @id @default(uuid())
-  userId    String
-  user      User     @relation(fields: [userId], references: [id])
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  content  String               @db.Text
-  status   JOURNAL_ENTRY_STATUS @default(DRAFT)
-  analysis EntryAnalysis?
+  userId String
+  user   User   @relation(fields: [userId], references: [id])
+
+  content String @db.Text
+
+  analysis Analysis?
 
   @@unique([userId, id])
 }
 
-model EntryAnalysis {
+model Analysis {
   id        String   @id @default(uuid())
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -59,11 +45,16 @@ model EntryAnalysis {
   entryId String
   entry   JournalEntry @relation(fields: [entryId], references: [id], onDelete: Cascade)
 
-  mood     String  @db.Text
-  subject  String  @db.Text
-  negative Boolean
+  userId String
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  mood     String
   summary  String  @db.Text
-  color    String  @default("#0101fe") @db.Text
+  color    String
+  negative Boolean
+  subject String
+  sentimentScore Float @default(0)
 
   @@unique([entryId])
+  @@index([userId])
 }
