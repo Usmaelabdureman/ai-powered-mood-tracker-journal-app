@@ -1,48 +1,44 @@
-const createURL = (path: string) => window.location.origin + path
-
-// export const fetcher = (...args: any[]) => fetch(...args).then((res) => res.json())
-export const fetcher = (...args: any[]) => fetch(...args as [RequestInfo, RequestInit]).then((res) => res.json());
-
-export const deleteEntry = async (id: any) => {
-  const res = await fetch(
-    new Request(createURL(`/api/entry/${id}`), {
-      method: 'DELETE',
-    })
-  )
-
-  if (res.ok) {
-    return res.json()
-  } else {
-    throw new Error('Something went wrong on API server!')
-  }
+const createURL = (path: string) => {
+  return window.location.origin + path
 }
 
-export const newEntry = async () => {
+export const updateEntry = async (id: any, content: any) => {
   const res = await fetch(
-    new Request(createURL('/api/entry'), {
-      method: 'POST',
-      body: JSON.stringify({ content: 'new entry' }),
-    })
-  )
-
-  if (res.ok) {
-    return res.json()
-  } else {
-    throw new Error('Something went wrong on API server!')
-  }
-}
-
-export const updateEntry = async (id: any, updates: any) => {
-  const res = await fetch(
-    new Request(createURL(`/api/entry/${id}`), {
+    new Request(createURL(`/api/journal/${id}`), {
       method: 'PATCH',
-      body: JSON.stringify({ updates }),
+      body: JSON.stringify({ content }),
     })
   )
 
   if (res.ok) {
-    return res.json()
-  } else {
-    throw new Error('Something went wrong on API server!')
+    const data = await res.json()
+    return data.data
+  }
+}
+
+export const createNewEntry = async () => {
+  const res = await fetch(
+    new Request(createURL('/api/journal'), {
+      method: 'POST',
+    })
+  )
+
+  if (res.ok) {
+    const data = await res.json()
+    return data.data
+  }
+}
+
+export const askQuestion = async (question: string) => {
+  const res = await fetch(
+    new Request(createURL('/api/question'), {
+      method: 'POST',
+      body: JSON.stringify({ question }),
+    })
+  )
+
+  if (res.ok) {
+    const data = await res.json()
+    return data.data
   }
 }

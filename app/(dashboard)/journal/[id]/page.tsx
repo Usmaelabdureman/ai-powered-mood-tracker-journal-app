@@ -19,14 +19,13 @@ const getEntry = async (id: any) => {
   return entry
 }
 
-const JournalEditorPage = async ({ params }:{params:any}) => {
+const EntryPage = async ({ params }:{params:any}) => {
   const entry = await getEntry(params.id)
-
   return (
-    <div className="w-full h-full">
+    <div className="h-full w-full ">
       <Editor entry={entry} />
     </div>
   )
 }
 
-export default JournalEditorPage
+export default EntryPage
