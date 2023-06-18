@@ -2,9 +2,28 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
+First under  .env
 
+```
+DATABASE_URL=
+    ```
+    then under .env.local
+    ```
 ```bash
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
+CLERK_SECRET_KEY=
+NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
+NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
+NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL=/journal
+NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=/new-user
+NODE_ENV=development
+OPENAI_API_KEY=
+
+```
+
+, run the development server:
+
+
 npm run dev
 # or
 yarn dev
