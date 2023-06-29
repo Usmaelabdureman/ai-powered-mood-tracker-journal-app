@@ -1,6 +1,7 @@
-import Editor from '@/components/Editor'
-import { getUserByClerkID } from '@/utils/auth'
-import { prisma } from '@/utils/db'
+import React from 'react'
+import Editor from '../../../../components/Editor'
+import { getUserByClerkID } from '../../../../utils/auth'
+import { prisma } from '../../../../utils/db'
 
 const getEntry = async (id: any) => {
   const user = await getUserByClerkID()

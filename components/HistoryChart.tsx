@@ -1,5 +1,6 @@
 'use client'
 
+import React from 'react'
 import { ResponsiveContainer, Line, XAxis, Tooltip, LineChart } from 'recharts'
 
 const CustomToolTip = ({ payload, label, active }:{payload:any,label:any,active:any}) => {

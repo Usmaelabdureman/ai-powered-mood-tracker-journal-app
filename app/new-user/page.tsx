@@ -1,6 +1,8 @@
-import { prisma } from '@/utils/db'
+
 import { currentUser } from '@clerk/nextjs'
 import { redirect } from 'next/navigation'
+import React from 'react'
+import { prisma } from '../../utils/db'
 
 const createNewUser = async () => {
   const user = await currentUser()

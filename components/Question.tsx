@@ -1,8 +1,8 @@
 'use client'
 
-import { askQuestion } from '@/utils/api'
+import React from 'react'
 import { SetStateAction, useState } from 'react'
-
+import { askQuestion } from '../utils/api'
 const Question = () => {
   const [value, setValue] = useState('')
   const [loading, setLoading] = useState(false)
