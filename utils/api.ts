@@ -1,44 +1,63 @@
-const createURL = (path: string) => {
-  return window.location.origin + path
-}
+//@ts-nocheck
+const createURL = (path) => window.location.origin + path
 
-export const updateEntry = async (id: any, content: any) => {
+export const fetcher = (...args) => fetch(...args).then((res) => res.json())
+
+export const deleteEntry = async (id) => {
   const res = await fetch(
-    new Request(createURL(`/api/journal/${id}`), {
-      method: 'PATCH',
-      body: JSON.stringify({ content }),
+    new Request(createURL(`/api/entry/${id}`), {
+      method: 'DELETE',
     })
   )
 
   if (res.ok) {
-    const data = await res.json()
-    return data.data
+    return res.json()
+  } else {
+    throw new Error('Something went wrong on API server!')
   }
 }
 
-export const createNewEntry = async () => {
+export const newEntry = async () => {
   const res = await fetch(
-    new Request(createURL('/api/journal'), {
+    new Request(createURL('/api/entry'), {
       method: 'POST',
+      body: JSON.stringify({ content: 'new entry' }),
     })
   )
 
   if (res.ok) {
-    const data = await res.json()
-    return data.data
+    return res.json()
+  } else {
+    throw new Error('Something went wrong on API server!')
   }
 }
 
-export const askQuestion = async (question: string) => {
+export const updateEntry = async (id, updates) => {
   const res = await fetch(
-    new Request(createURL('/api/question'), {
+    new Request(createURL(`/api/entry/${id}`), {
+      method: 'PATCH',
+      body: JSON.stringify({ updates }),
+    })
+  )
+
+  if (res.ok) {
+    return res.json()
+  } else {
+    throw new Error('Something went wrong on API server!')
+  }
+}
+
+export const askQuestion = async (question) => {
+  const res = await fetch(
+    new Request(createURL(`/api/question`), {
       method: 'POST',
       body: JSON.stringify({ question }),
     })
   )
 
   if (res.ok) {
-    const data = await res.json()
-    return data.data
+    return res.json()
+  } else {
+    throw new Error('Something went wrong on API server!')
   }
 }

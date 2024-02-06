@@ -1,6 +1,9 @@
 import { auth } from '@clerk/nextjs'
 import Link from 'next/link'
 import React from 'react'
+const { PrismaClient } = require('@prisma/client');
+
+const prisma = new PrismaClient();
 
 export default async function Home() {
   const { userId } = await auth()
@@ -25,3 +28,18 @@ export default async function Home() {
     </div>
   )
 }
+
+
+async function checkDatabaseConnection() {
+  try {
+    await prisma.$connect();
+    console.log('Database connected successfully');
+  } catch (error) {
+    console.error('Error connecting to the database:', error);
+  } finally {
+    await prisma.$disconnect();
+  }
+}
+
+// Call the function to check the database connection
+checkDatabaseConnection();
